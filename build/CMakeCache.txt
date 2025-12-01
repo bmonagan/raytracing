@@ -30,10 +30,25 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Project
+CMAKE_PROJECT_NAME:STATIC=raytracing
 
 //Value Computed by CMake
 CMAKE_PROJECT_SPDX_LICENSE:STATIC=
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=0.1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Value Computed by CMake
 Project_BINARY_DIR:STATIC=C:/Users/breeb/Documents/Programming/Projects/C++/raytracing/build
@@ -43,6 +58,15 @@ Project_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 Project_SOURCE_DIR:STATIC=C:/Users/breeb/Documents/Programming/Projects/C++/raytracing
+
+//Value Computed by CMake
+raytracing_BINARY_DIR:STATIC=C:/Users/breeb/Documents/Programming/Projects/C++/raytracing/build
+
+//Value Computed by CMake
+raytracing_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+raytracing_SOURCE_DIR:STATIC=C:/Users/breeb/Documents/Programming/Projects/C++/raytracing
 
 
 ########################
