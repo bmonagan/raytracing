@@ -1,2 +1,6 @@
 notes.md
 build/CMakeCache.txt
+build
+CMakeLists.txt
+build/CMakeCache.txt
+build/CMakeFiles/CMakeConfigureLog.yaml
