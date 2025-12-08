@@ -9,7 +9,14 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/main.exe",
-            "args": [],
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-I${workspaceFolder}/include",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
@@ -23,7 +30,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build with gcc"
+            "preLaunchTask": "build with g++"
         }
     ]
 }
