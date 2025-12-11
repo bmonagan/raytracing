@@ -4,3 +4,4 @@ build
 CMakeLists.txt
 build/CMakeCache.txt
 build/CMakeFiles/CMakeConfigureLog.yaml
+notes.txt
