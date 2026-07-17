@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/benny/Work/raytracing/src/InOneWeekend/build",
+  "command": "/usr/bin/c++   -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -Wpedantic -O3 -o CMakeFiles/raytracer.dir/src/main.cpp.o -c /home/benny/Work/raytracing/src/InOneWeekend/src/main.cpp",
+  "file": "/home/benny/Work/raytracing/src/InOneWeekend/src/main.cpp",
+  "output": "CMakeFiles/raytracer.dir/src/main.cpp.o"
+}
+]
