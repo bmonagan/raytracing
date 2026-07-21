@@ -1,3 +1,0 @@
-/home/benny/Work/raytracing/src/InOneWeekend/build/CMakeFiles/raytracer.dir
-/home/benny/Work/raytracing/src/InOneWeekend/build/CMakeFiles/edit_cache.dir
-/home/benny/Work/raytracing/src/InOneWeekend/build/CMakeFiles/rebuild_cache.dir
