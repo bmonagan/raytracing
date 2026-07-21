@@ -5,9 +5,9 @@
 #include <iostream>
 
 color ray_color(const ray& r) {
-  vec_3 unit_direction = unit_vecot(r.direction());
+  vec3 unit_direction = unit_vector(r.direction());
   auto a = 0.5*(unit_direction.y() + 1.0);
-  return (1.0-a)*color(1.0,1.0,1.0) + a*color(0.5,0.7,1.0);
+  return (1.0-a)*color(1.0, 1.0, 1.0) + a*color(0.5,0.7,1.0);
 }
 int main() {
   // image
@@ -47,7 +47,7 @@ int main() {
     for (int i{}; i < image_width; i++) {
       auto pixel_center = pixel100_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
       auto ray_direction = pixel_center - camera_center;
-      ray r(camera_center, ray_direction)
+      ray r(camera_center, ray_direction);
 
       color pixel_color = ray_color(r);
       write_color(std::cout, pixel_color);
