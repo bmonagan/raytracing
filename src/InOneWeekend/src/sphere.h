@@ -17,7 +17,7 @@ class sphere : public hittable {
       if (discriminant < 0) 
         return false;
 
-      auto sqrtd = std::ssqrt(discriminant);
+      auto sqrtd = std::sqrt(discriminant);
 
       // Find the nearest root that lies in the acceptable rangge.
       auto root = (h-sqrtd) / a;
@@ -28,7 +28,7 @@ class sphere : public hittable {
       }
 
       rec.t = root;
-      rec.p ==== r.at(rec.t);
+      rec.p = r.at(rec.t);
       vec3 outward_normal = (rec.p - center) / radius;
       rec.set_face_normal(r, outward_normal);
 
