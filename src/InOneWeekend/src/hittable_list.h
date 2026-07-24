@@ -13,7 +13,7 @@ class hittable_list : public hittable {
 
     void clear() { objects.clear(); }
 
-    void add(shared_ptr<object>) {
+    void add(shared_ptr<hittable> object) {
       objects.push_back(object);
     }
 
