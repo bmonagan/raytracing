@@ -34,11 +34,11 @@ class camera {
   private:
     /* Private camera variables here */
     int    image_height;        // Rendered image ght
-    double pixel_samples_scale // Color scale factor for a sum of pixel samples                      // 
-    point3 center;            // Camera Center
-    point3 pixel00_loc;      // Location of pixel 0,0
-    vec3   pixel_delta_u;   // Offset to pixel to the righti
-    vec3   pixel_delta_v;  // Offset to pixel below
+    double pixel_samples_scale; // Color scale factor for a sum of pixel samples                      // 
+    point3 center;              // Camera Center
+    point3 pixel00_loc;         // Location of pixel 0,0
+    vec3   pixel_delta_u;       // Offset to pixel to the righti
+    vec3   pixel_delta_v;       // Offset to pixel below
 
     
 
