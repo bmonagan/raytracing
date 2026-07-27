@@ -10,10 +10,10 @@ class camera {
     int    image_width  = 100; // Rendered image width in pixel count
 
 
-    void render(cosnt hittable& world) {
+    void render(const hittable& world) {
       initialize();
 
-      std::cout << "P3\n" <<< image_width << ' ' << image_height << "\n255\n";
+      std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
       for (int j{}; j < image_height; j++) {
         std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
@@ -44,13 +44,12 @@ class camera {
       image_height = int(image_width / aspect_ratio);
       image_height = (image_height < 1) ? 1 : image_height;
 
-      center = point(0,0,0);
-
+      center = point3(0,0,0);
 
       // Determine viewport dimensions
       auto focal_length = 1.0;
       auto viewport_height = 2.0;
-      auto view_port width = viewport_height * (double(image_width)/image_height);
+      auto viewport_width = viewport_height * (double(image_width)/image_height);
 
       // Calculate the vectors across the horizontal and down the vertical viewport edges
       auto viewport_u = vec3(viewport_width, 0, 0);
@@ -76,7 +75,7 @@ class camera {
     auto a = 0.5*(unit_direction.y() + 1.0);
     return (1.0-a)*color(1.0, 1.0, 1.0) + a*color(0.5,0.7,1.0);
   }
-    }
+    
 };
 
 #endif
