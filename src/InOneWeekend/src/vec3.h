@@ -36,11 +36,17 @@ class vec3 {
     double length() const {
       return std::sqrt(length_squared());
     }
-
     double length_squared() const {
       return e[0]*e[0] + e[1]*e[1] + e[2]*e[2];
     }
+    static vec3 random() {
+      return vec3(random_double(), random_double(), random_double());
+    }
+    static vec3 random(double min, double max) {
+      return vec3(random_double(min,max), random_double(min,max), random_double(min,max));
+    }
 };
+
 // point3 is just an alias for vec3, but useful for geomtric clarity in the code.
 using point3 = vec3;
 
