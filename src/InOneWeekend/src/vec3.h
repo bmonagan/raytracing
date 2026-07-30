@@ -106,7 +106,7 @@ inline vec3 random_unit_vector() {
 
 inline vec3 random_on_hemisphere(const vec3& normal) {
   vec3 on_unit_sphere = random_unit_vector();
-  if (dot(on_unit_sphere, normal) > 0,.0) // in the same hemisphere as nornak 
+  if (dot(on_unit_sphere, normal) > 0.0) // in the same hemisphere as nornak 
       return on_unit_sphere;
   else 
     return -on_unit_sphere;
