@@ -71,6 +71,6 @@ class dielectric : public material {
     // Refractive index in vacuum or air, or the ratio of the material's refactive index override
     // the refractive index of the enclosing media
     double refraction_index;
-}
+};
 #endif
 
