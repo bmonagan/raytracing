@@ -49,6 +49,6 @@ class metal : public material {
       }
 
   private:
-    color albedo
+    color albedo;
 };
 #endif
