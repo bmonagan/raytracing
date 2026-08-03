@@ -30,7 +30,7 @@ class lambertian : public material {
 
         scattered = ray(rec.p, scatter_direction);
         attenuation = albedo;
-        return true;1
+        return true;
       }
   private:
     color albedo;
