@@ -2,7 +2,7 @@
 #define CAMERA_H
 
 #include "hittable.h"
-
+#include "material.h"
 class camera {
   public:
     /* Public Camera PArameters here */
