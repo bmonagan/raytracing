@@ -57,8 +57,6 @@ class camera {
       auto viewport_height = 2 * h * focal_length;
       auto viewport_width = 2.0;
 
-      auto viewport_width = viewport_height * (double(image_width)/image_height);
-
       // Calculate the vectors across the horizontal and down the vertical viewport edges
       auto viewport_u = vec3(viewport_width, 0, 0);
       auto viewport_v = vec3(0, -viewport_height, 0);
