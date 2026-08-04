@@ -83,7 +83,7 @@ class camera {
       pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
 
       // Calculate the camera defocus disk basis vectors
-      auto defocus_radius = focus_dist * std::tan(degrees_to_radians(defoucs_angle / 2));
+      auto defocus_radius = focus_dist * std::tan(degrees_to_radians(defocus_angle / 2));
       defocus_disk_u = u * defocus_radius;
       defocus_disk_v = v * defocus_radius;
     }
