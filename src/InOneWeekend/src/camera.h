@@ -51,6 +51,9 @@ class camera {
 
       // Determine viewport dimensions
       auto focal_length = 1.0;
+      auto theta = degrees_to_radians(vfov);
+      auto h = std::tan(theta/2);
+      auto viewport_height = 2 * h * focal_length;
       auto viewport_height = 2.0;
       auto viewport_width = viewport_height * (double(image_width)/image_height);
 
