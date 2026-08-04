@@ -11,6 +11,7 @@ class camera {
     int    samples_per_pixel = 10;   // Count of random samples for each pixel
     int    max_depth         = 10;   // Maximum number of ray bounces into scence
 
+    double vfov = 90; // Vertical view angle (field of view)
     void render(const hittable& world) {
       initialize();
 
