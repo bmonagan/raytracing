@@ -13,8 +13,8 @@ class camera {
 
     double vfov = 90;                 // Vertical view angle (field of view)
     point3 lookfrom = point3(0,0,0);  // POint camera is looking from
-    point3 lookat   = point3(0,0,-1)  // Point camera is looking at 
-    vec3 vup        = vec(0,1,0);     // Camera relative "up" direction
+    point3 lookat   = point3(0,0,-1); // Point camera is looking at 
+    vec3 vup        = vec3(0,1,0);     // Camera relative "up" direction
     void render(const hittable& world) {
       initialize();
 
@@ -67,7 +67,7 @@ class camera {
       v = cross(w,u);
 
       // Calculate the vectors across the horizontal and down the vertical viewport edges
-      vec3 viewport_u = viewport_width * u    // Vector across viewporrt horizontal edge
+      vec3 viewport_u = viewport_width * u;    // Vector across viewporrt horizontal edge
       vec3 viewport_v = viewport_height * -v; // Vector down viewport vertical edge
 
       // Calculate the horizontal and vertical delta vectors from pixel to pixel
