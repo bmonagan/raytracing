@@ -15,7 +15,7 @@ class lambertian : public material {
 public:
   lambertian(const color &albedo) : albedo(albedo) {}
 
-  bool scatter(const ray &, const hit_record &rec, color &attenuation,
+  bool scatter(const ray &r_in, const hit_record &rec, color &attenuation,
                ray &scattered) const override {
     auto scatter_direction = rec.normal + random_unit_vector();
 
@@ -70,7 +70,7 @@ public:
     else {
       direction = refract(unit_direction, rec.normal, ri);
     }
-    scattered = ray(rec.p, direction, r_in.time, r_in.time()());
+    scattered = ray(rec.p, direction, r_in.time());
     return true;
   }
 
