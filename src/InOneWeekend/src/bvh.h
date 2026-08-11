@@ -9,7 +9,7 @@
 #include <algorithm>
 #include <memory>
 
-class bvh_node : public hittlable {
+class bvh_node : public hittable {
 public:
   bvh_node(hittable_list list)
       : bvh_node(list.objects, 0, list.objects.size()) {
@@ -47,7 +47,7 @@ public:
       right = make_shared<bvh_node>(objects, mid, end);
     }
   }
-  bool hit(cosnt ray &r, interval ray_t, hit_record &rec) const override {
+  bool hit(const ray &r, interval ray_t, hit_record &rec) const override {
     if (!bbox.hit(r, ray_t))
       return false;
 
@@ -77,13 +77,13 @@ private:
     return box_compare(a, b, 0);
   }
 
-  static bool box_y_copmpare(const shared_ptr<hittable> a,
-                             const shared_ptr<hittable> b) {
+  static bool box_y_compare(const shared_ptr<hittable> a,
+                            const shared_ptr<hittable> b) {
     return box_compare(a, b, 1);
   }
 
-  static bool box_z_copmpare(const shared_ptr<hittable> a,
-                             const shared_ptr<hittable> b) {
+  static bool box_z_compare(const shared_ptr<hittable> a,
+                            const shared_ptr<hittable> b) {
     return box_compare(a, b, 2);
   }
 };
