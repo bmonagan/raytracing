@@ -40,7 +40,7 @@ public:
       const interval &ax = axis_interval(axis);
       const double advinv = 1.0 / ray_dir[axis];
 
-      auto t0 = (ax.min - ray_orig(axis)) * advinv;
+      auto t0 = (ax.min - ray_orig[axis]) * advinv;
       auto t1 = (ax.max - ray_orig[axis]) * advinv;
 
       if (t0 < t1) {
