@@ -8,7 +8,10 @@ public:
   // Stationary sphere
   sphere(const point3 &static_center, double radius, shared_ptr<material> mat)
       : center(static_center, vec3(0, 0, 0)), radius(std::fmax(0, radius)),
-        mat(mat) {}
+        mat(mat) {
+    auto rvec = vec3(radius, radius, radius);
+    bbox = aabb(static_center - rvec, static_center + rvec);
+  }
 
   // Moving sphere
   sphere(const point3 &center1, const point3 &center2, double radius,
@@ -46,10 +49,13 @@ public:
     return true;
   }
 
+  auto boundding_box() const override { return bbox; }
+
 private:
   ray center;
   double radius;
   shared_ptr<material> mat;
+  aabb bbox;
 };
 
 #endif // !SPHERE_H
