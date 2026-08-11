@@ -53,7 +53,7 @@ public:
 
     bool hit_left = left->hit(r, ray_t, rec);
     bool hit_right =
-        right->hit(r, itnerval(ray_t.min, hit_left ? rec.t : ray_t.max), rec);
+        right->hit(r, interval(ray_t.min, hit_left ? rec.t : ray_t.max), rec);
 
     return hit_left || hit_right;
   }
@@ -67,8 +67,8 @@ private:
 
   static bool box_compare(const shared_ptr<hittable> a,
                           const shared_ptr<hittable> b, int axis_index) {
-    auto a_axis_interval = a->bounding_box().a_axis_interval(axis_index);
-    auto b_axis_interval = b->bounding_box().b_axis_interval(axis_index);
+    auto a_axis_interval = a->bounding_box().axis_interval(axis_index);
+    auto b_axis_interval = b->bounding_box().axis_interval(axis_index);
     return a_axis_interval.min < b_axis_interval.min;
   }
 
