@@ -54,7 +54,7 @@ public:
     return true;
   }
 
-  auto boundding_box() const override { return bbox; }
+  auto bounding_box() const override { return bbox; }
 
 private:
   ray center;
