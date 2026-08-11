@@ -34,7 +34,7 @@ public:
   }
   bool hit(const ray &r, interval ray_t) const {
     const point3 &ray_orig = r.origin();
-    const vec3 &ray_dir = ray.direction();
+    const vec3 &ray_dir = r.direction();
 
     for (int axis{}; axis < 3; axis++) {
       const interval &ax = axis_interval(axis);
