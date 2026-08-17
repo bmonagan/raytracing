@@ -75,6 +75,6 @@ public:
   }
 
 private:
-  rtw_iamge image;
+  rtw_image image;
 };
 #endif
