@@ -73,7 +73,7 @@ private:
     auto theta = std::acos(-p.y());
     auto phi = std::atan2(-p.z(), p.x()) + pi;
 
-    u = phi / 2 * pi;
+    u = phi / (2 * pi);
     v = theta / pi;
   }
 };
