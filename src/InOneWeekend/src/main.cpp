@@ -9,7 +9,7 @@
 #include "texture.h"
 #include <memory>
 
-int main() {
+void bouncing_sphere() {
   hittable_list world;
 
   auto checker = std::make_shared<checker_texture>(0.32, color(.2, .3, .1),
@@ -75,3 +75,4 @@ int main() {
 
   cam.render(world);
 }
+int main() { bouncing_sphere(); }
