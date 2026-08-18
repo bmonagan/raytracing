@@ -17,22 +17,19 @@ public:
     auto u = p.x() - std::floor(p.x());
     auto v = p.y() - std::floor(p.y());
     auto w = p.z() - std::floor(p.z());
-    u = u * u * (3 - 2 * u);
-    v = v * v * (3 - 2 * v);
-    w = w * w * (3 - 2 * w);
 
     auto i = int(std::floor(p.x()));
     auto j = int(std::floor(p.y()));
     auto k = int(std::floor(p.z()));
-    double c[2][2][2];
+    vec3 c[2][2][2];
 
     for (int di = 0; di < 2; di++)
       for (int dj = 0; dj < 2; dj++)
         for (int dk = 0; dk < 2; dk++)
           c[di][dj][dk] =
-              randfloat[perm_x[(i + di) & 255] ^ perm_z[(j + dj) & 255] ^
-                        perm_z[(k + dk) & 255]];
-    return trilinear_interp(c, u, v, w);
+              randvec[perm_x[(i + di) & 255] ^ perm_z[(j + dj) & 255] ^
+                      perm_z[(k + dk) & 255]];
+    return perlin_interp(c, u, v, w);
   }
 
 private:
