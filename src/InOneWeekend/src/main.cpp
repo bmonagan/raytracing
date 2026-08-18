@@ -1,4 +1,3 @@
-#include "perlin.h"
 #include "rtweekend.h"
 
 #include "bvh.h"
