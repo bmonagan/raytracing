@@ -63,7 +63,8 @@ private:
     auto theta = degrees_to_radians(vfov);
     auto h = std::tan(theta / 2);
     auto viewport_height = 2 * h * focus_dist;
-    auto viewport_width = 2.0;
+    auto viewport_width =
+        viewport_height * (double(image_width) / image_height);
 
     // Calculate the u, v ,w unit basis vectors for the camera coordinate frame.
     w = unit_vector(lookfrom - lookat);
