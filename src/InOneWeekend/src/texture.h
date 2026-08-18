@@ -1,9 +1,11 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
+#include "perlin.h"
 #include "rtw_stb_image.h"
 #include "vec3.h"
 #include <memory>
+
 class texture {
 public:
   virtual ~texture() = default;
@@ -76,5 +78,16 @@ public:
 
 private:
   rtw_image image;
+};
+class noise_texture : public texture {
+public:
+  noise_texture() {}
+
+  color value(double u, double v, const point3 &p) const override {
+    return color(1, 1, 1) * noise.noise(p);
+  }
+
+private:
+  perlin noise;
 };
 #endif
