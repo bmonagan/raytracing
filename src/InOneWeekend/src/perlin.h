@@ -5,7 +5,7 @@ class perlin {
 public:
   perlin() {
     for (int i = 0; i < point_count; i++) {
-      randfloat[i] = random_double();
+      randvec[i] = unit_vector(vec3::random(-1, 1));
     }
 
     perlin_generate_perm(perm_x);
@@ -37,6 +37,7 @@ public:
 
 private:
   static const int point_count = 256;
+  vec3 randvec[point_count];
   double randfloat[point_count];
   int perm_x[point_count];
   int perm_y[point_count];
