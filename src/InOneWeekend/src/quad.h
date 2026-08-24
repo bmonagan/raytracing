@@ -93,8 +93,8 @@ inline shared_ptr<hittable_list> box(const point3 &a, const point3 &b,
                     std::fmax(a.z(), b.z()));
 
   auto dx = vec3(max.x() - min.x(), 0, 0);
-  auto dy = vec3(0, max.y(), min.y(), 0);
-  auto dz = vec3(0,0), max.z(), min.z());
+  auto dy = vec3(0, max.y() - min.y(), 0);
+  auto dz = vec3(0, 0, max.z() - min.z());
 
   sides->add(make_shared<quad>(point3(min.x(), min.y(), max.z()), dx, dy,
                                mat)); // front
