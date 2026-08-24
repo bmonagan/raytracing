@@ -5,101 +5,101 @@
 
 class material {
 
-virtual ~material() = default;
-virtual color emitted(double u, double v, const point3 &p) const {
-  return color(0, 0, 0);
+  virtual ~material() = default;
+  virtual color emitted(double u, double v, const point3 &p) const {
+    return color(0, 0, 0);
+  }
+
+  virtu return false;
 }
 
-  virtu
-  return false;
-}
+class lambertian : public material {
 
-c
-lass lambertian : public material {
-public:
-  lambertian(const color &albedo) : albedo(albedo) {}
+    lambertian(const color &albedo) : 
+  
+    bool scatter(const ray &r_in, const hit_record &rec, color &attenuation,
+                 ray &scattered) const override {
+      auto scatter_direction = rec.normal + random_unit_vector();
+                 
+      // Catch degenerate scatter scatter_direction
 
-  bool scatter(const ray &r_in, const hit_record &rec, color &attenuation,
-               ray &scattered) const override {
-    auto scatter_direction = rec.normal + random_unit_vector();
+        scatter_direction = rec.normal;
+      
+        attered = ray(rec.p, scatter_di
 
-    // Catch degenerate scatter scatter_direction
-    if (scatter_direction.near_zero())
-      scatter_direction = rec.normal;
+      return true;
+      
+      
+    i
 
-    scattered = ray(rec.p, scatter_direction, r_in.time());
-    attenuation = albedo;
-    return true;
-  }
+  };
+    
+  cl
 
-private:
-  color albedo;
-};
+    metal(const color &albedo, do
+        :
+    
+         scatter(const ray &r_in, const hit_record &re
 
-class metal : public material {
-public:
-  metal(const color &albedo, double fuzz)
-      : albedo(albedo), fuzz(fuzz < 1 ? fuzz : 1) {}
+      vec3 reflected = reflect(r_in.direction(), rec.normal);
+                  unit_vector(reflected) + (fuzz 
+      scattered = ray(rec.p, reflected, r_in.time());
+      attenuation = albedo;
+      return (dot(scattered.direction(), rec.normal) 
+      
+      
+    i
 
-  bool scatter(const ray &r_in, const hit_record &rec, color &attenuation,
-               ray &scattered) const override {
-    vec3 reflected = reflect(r_in.direction(), rec.normal);
-    reflected = unit_vector(reflected) + (fuzz * random_unit_vector());
-    scattered = ray(rec.p, reflected, r_in.time());
-    attenuation = albedo;
-    return (dot(scattered.direction(), rec.normal) > 0);
-  }
+    double
+    
 
-private:
-  color albedo;
-  double fuzz;
-};
-class dielectric : public material {
-public:
-  dielectric(double refraction_index) : refraction_index(refraction_index) {}
+    class dielectric : public material {pu
+      dielectric(double refraction_index
+    
+      bool scatter(const ray &r_in, const
+          hit_record &rec, color &attenuation,
 
-  bool scatter(const ray &r_in, const hit_record &rec, color &attenuation,
-               ray &scattered) const override {
-    attenuation = color(1.0, 1.0, 1.0);
-    double ri = rec.front_face ? (1.0 / refraction_index) : refraction_index;
+        attenuation = color(1.0, 1.0, 1.0);
+                    rec.front_face ? (1.0 / refract
+        
+        vec3 unit_d
+            rection = unit_vector(r_in.direction());
 
-    vec3 unit_direction = unit_vector(r_in.direction());
-    double cos_theta = std::fmin(dot(-unit_direction, rec.normal), 1.0);
-    double sin_theta = std::sqrt(1.0 - cos_theta * cos_theta);
+        double sin_theta = std::sqrt(1.0 - cos_theta * cos_t
+        
+        bool cannot_refract = ri * sin_theta > 1.0;
 
-    bool cannot_refract = ri * sin_theta > 1.0;
-    vec3 direction;
-    if (cannot_refract || reflectance(cos_theta, ri) > random_double())
-      direction = reflect(unit_direction, rec.normal);
-    else {
-      direction = refract(unit_direction, rec.normal, ri);
-    }
-    scattered = ray(rec.p, direction,r_in.time());
-    return true;
-  }
+        if (cannot_refract || reflectance(cos_theta
+          direction = r
+        else {
+          direction = refract(unit_direction, rec.normal, 
+        }
+          attered = ray(rec.p, direction,r_in.time());
+        r
+      }
 
-  ivate :
+      ivate :
 
-      // in d
-      double refraction_index;
-  //
-  static double reflectanc
+          // in d
+          double refraction_index;
+      //
+      static double reflectanc
 
-      auto r0 = (1 - refraction_index) / (1 + refraction_index);
-  r0 = r0 * r0;
-  return r0 + (1 - r0) * std::pow((1 - cosine), 5);
-};
-class diffuse_light : public material {
-public:
-  diffuse_light(shared_ptr<texture> tex) : tex(tex) {}
-  diffuse_light(const color &emit) : tex(make_shared<sold_color>(emit)) {}
+          auto r0 = (1 - refraction_index) / (1 + refraction_index);
+      r0 = r0 * r0;
+      return r0 + (1 - r0) * std::pow((1 - cosine), 5);
+    };
+    class diffuse_light : public material {
+    public:
+      diffuse_light(shared_ptr<texture> tex) : tex(tex) {}
+      diffuse_light(const color &emit) : tex(make_shared<sold_color>(emit)) {}
 
-  color emitted(double u, double v, const point3 &p) const override {
-    return tex->value(u, v, p);
-  }
+      color emitted(double u, double v, const point3 &p) const override {
+        return tex->value(u, v, p);
+      }
 
-private:
-  shared_ptr<texture> tex;
-};
-ndif
-
+    private:
+      shared_ptr<texture> tex;
+    };
+    ndif
+  
