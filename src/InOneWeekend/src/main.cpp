@@ -21,6 +21,7 @@ void earth() {
   cam.image_width = 400;
   cam.samples_per_pixel = 100;
   cam.max_depth = 50;
+  cam.background = color(0.70, 0.80, 1.00);
 
   cam.vfov = 20;
   cam.lookfrom = point3(0, 0, 12);
@@ -87,6 +88,7 @@ void bouncing_spheres() {
   cam.image_width = 400;
   cam.samples_per_pixel = 100;
   cam.max_depth = 50;
+  cam.background = color(0.70, 0.80, 1.00);
 
   cam.vfov = 20;
   cam.lookfrom = point3(13, 2, 3);
@@ -115,6 +117,7 @@ void checkered_spheres() {
   cam.image_width = 400;
   cam.samples_per_pixel = 100;
   cam.max_depth = 50;
+  cam.background = color(0.70, 0.80, 1.00);
 
   cam.vfov = 20;
   cam.lookfrom = point3(13, 2, 3);
@@ -140,6 +143,7 @@ void perlin_spheres() {
   cam.image_width = 400;
   cam.samples_per_pixel = 100;
   cam.max_depth = 50;
+  cam.background = color(0.70, 0.80, 1.00);
 
   cam.vfov = 20;
   cam.lookfrom = point3(13, 2, 3);
@@ -178,6 +182,7 @@ void quads() {
   cam.image_width = 400;
   cam.samples_per_pixel = 100;
   cam.max_depth = 50;
+  cam.background = color(0.70, 0.80, 1.00);
 
   cam.vfov = 80;
   cam.lookfrom = point3(0, 0, 9);
