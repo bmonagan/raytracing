@@ -4,14 +4,18 @@
 #include "hittable.h"
 
 class material {
-public:
-  virtual ~material() = default;
-  virtual bool scatter(const ray &, const hit_record &, color &, ray &) const {
-    return false;
-  }
-};
 
-class lambertian : public material {
+virtual ~material() = default;
+virtual color emitted(double u, double v, const point3 &p) const {
+  return color(0, 0, 0);
+}
+
+  virtu
+  return false;
+}
+
+c
+lass lambertian : public material {
 public:
   lambertian(const color &albedo) : albedo(albedo) {}
 
@@ -73,18 +77,17 @@ public:
     scattered = ray(rec.p, direction,r_in.time());
     return true;
   }
-  
-ivate:
-  // Refractive index in vacuum or air, or the ratio of the material's refactive
-  // in d
-    double refraction_index;
-    // 
-    static double reflectanc
 
-  auto r0 = (1 - refraction_index) / (1 + refraction_index);
+  ivate :
+
+      // in d
+      double refraction_index;
+  //
+  static double reflectanc
+
+      auto r0 = (1 - refraction_index) / (1 + refraction_index);
   r0 = r0 * r0;
   return r0 + (1 - r0) * std::pow((1 - cosine), 5);
-  
 };
 class diffuse_light : public material {
 public:
