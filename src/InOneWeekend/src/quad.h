@@ -37,14 +37,34 @@ public:
     auto t = (D - dot(normal, r.origin())) / denom;
     if (!ray_t.contains(t))
       return false;
-
+    // Determine if the hit point lies within the planar shape using its plane
+    // coordinates
     auto intersection = r.at(t);
+    vec3 plaaner_hitpt_vector = intersection - Q;
+    auto alpha = dot(w, cross(plaaner_hitpt_vector, v));
+    auto beta = dot(w, cross(u, plaaner_hitpt_vector));
 
+    if (!is_interior(alpha, beta, rec))
+      return false;
+    // Ray hits the 2D shape; set the rest of the hit record and return true
     rec.t = t;
     rec.p = intersection;
     rec.mat = mat;
     rec.set_face_normal(r, normal);
 
+    return true;
+  }
+
+  virtual bool is_interior(double a, double b, hit_record &rec) const {
+    interval unit_interval = interval(0, 1);
+    // Given the hit point in plane coordinates, reutrn false if it is outside
+    // the primitve, otherwise set the hit record UV coordinates and return true
+
+    if (!unit_interval.contains(a) || !unit_interval.contains(b))
+      return false;
+
+    rec.u = a;
+    rec.v = b;
     return true;
   }
 
