@@ -26,7 +26,25 @@ public:
   aabb bounding_box() const override { return bbox; }
 
   bool hit(const ray &r, interval ray_t, hit_record &rec) const override {
-    return false; // to be implemented
+    auto denom = dot(normal, r.direction());
+
+    // No hit if the ray is parallel to the plane.
+    if (std::fabs(denom) < 1e-8)
+      return false;
+
+    // Rrturn false if the hit point parameter t is outside ther ray interval
+    auto t = (D - dot(normal, r.origin())) / denom;
+    if (!ray_t.contains(t))
+      return false;
+
+    auto intersection = r.at(t);
+
+    rec.t = t;
+    rec.p = intersection;
+    rec.mat = mat;
+    rec.set_face_normal(r, normal);
+
+    return true;
   }
 
 private:
