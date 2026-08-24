@@ -8,6 +8,9 @@
 class material {
 public:
   virtual ~material() = default;
+  virtual color emitted(double u, double v, const point3 &p) const {
+    return color(0, 0, 0);
+  }
   virtual bool scatter(const ray &, const hit_record &, color &, ray &) const {
     return false;
   }
@@ -72,7 +75,7 @@ public:
     else {
       direction = refract(unit_direction, rec.normal, ri);
     }
-    scattered = ray(rec.p, direction,r_in.time());
+    scattered = ray(rec.p, direction, r_in.time());
     return true;
   }
 
@@ -88,5 +91,16 @@ private:
     return r0 + (1 - r0) * std::pow((1 - cosine), 5);
   }
 };
-#endif
+class diffuse_light : public material {
+public:
+  diffuse_light(shared_ptr<texture> tex) : tex(tex) {}
+  diffuse_light(const color &emit) : tex(make_shared<solid_color>(emit)) {}
 
+  color emitted(double u, double v, const point3 &p) const override {
+    return tex->value(u, v, p);
+  }
+
+private:
+  shared_ptr<texture> tex;
+};
+#endif
