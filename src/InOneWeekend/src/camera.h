@@ -32,7 +32,7 @@ public:
         color pixel_color(0, 0, 0);
         for (int s_j = 0; s_j < sqrt_spp; s_j++) {
           for (int s_i = 0; s_i < sqrt_spp; s_i++) {
-            ray_r = get_ray(i, j, s_i, s_j);
+            ray r = get_ray(i, j, s_i, s_j);
             pixel_color += ray_color(r, max_depth, world);
           }
         }
@@ -47,8 +47,8 @@ private:
   int image_height;           // Rendered image ght
   double pixel_samples_scale; // Color scale factor for a sum of pixel samples
   int sqrt_spp;               // Square root of number of samples per pixel
-  double recip_sqrt_spp       // 1 / sqrt_spp
-      point3 center;          // Camera Center
+  double recip_sqrt_spp;      // 1 / sqrt_spp
+  point3 center;              // Camera Center
   point3 pixel00_loc;         // Location of pixel 0,0
   vec3 pixel_delta_u;         // Offset to pixel to the righti
   vec3 pixel_delta_v;         // Offset to pixel below
